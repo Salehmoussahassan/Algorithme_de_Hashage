@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashage de Texte</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hashage de Texte</h1>
+        <form method="POST">
+            <label for="text">Texte à Hasher:</label>
+            <input type="text" id="text" name="text" required>
+
+            <label for="algorithm">Algorithme:</label>
+            <select id="algorithm" name="algorithm">
+                <option value="md5">MD5</option>
+                <option value="sha1">SHA-1</option>
+                <option value="sha256">SHA-256</option>
+                <option value="sha512">SHA-512</option>
+            </select>
+
+            <button type="submit">Hasher</button>
+        </form>
+
+        {% if hashed_text %}
+            <div class="result">
+                <h2>Résultat du Hashage:</h2>
+                <p>{{ hashed_text }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
